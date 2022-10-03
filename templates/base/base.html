@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- ПОДКЛЮЧЕНИЕ СТИЛЕЙ -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    {% block styles %}{% endblock %}
+    <!-- /ПОДКЛЮЧЕНИЕ СТИЛЕЙ -->
+</head>
+<body class="d-flex flex-column min-vh-100">
+{% block nav %}
+    <!-- ШАПКА -->
+    <nav class="navigation navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">NatImmun</a>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" style="color: white">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'map' %}">Работа с API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'simple' %}">Пример страницы</a>
+                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Кластеры</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Денотативные карты</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#">Публикации</a>-->
+<!--                    </li>-->
+                </ul>
+<!--                <form class="d-flex">-->
+<!--                    <a class="btn btn-primary" href="#" role="button">О картографии цвета</a>-->
+<!--                </form>-->
+            </div>
+        </div>
+    </nav>
+    <!-- КОНЕЦ ШАПКИ -->
+{% endblock %}
+{% block content %}
+
+{% endblock %}
+{% block footer %}
+    <footer class="page-footer footer-font mt-auto" style="background-color: #EFEBE9;">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            <a class="" href="https://normativ.kontur.ru/document?moduleId=1&documentId=410331"> <strong>Приказ Минздрава РФ от 06.12.2021 N 1122Н</strong></a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+{% endblock %}
+<!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ -->
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+{% endblock %}
+<!-- /ПОДКЛЮЧЕНИЕ СКРИПТОВ -->
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<h2>{{title}}</h2>
+<h3>Привет из новой страницы от Самойловой</h3>
+<p>{{message}}Это он!!!</p>
+<img src="{% static 'image/photo_2022-05-24_19-50-59.jpg' %}">
+<p>Выпекли в деканате ФИЗМАТа</p>
+{% endblock %}
