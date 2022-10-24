@@ -23,7 +23,7 @@ SECRET_KEY = '-e#a((o5^o5-x3_4+=kazew4maw3)pdkevm4xxg!7$ul_d3gs!'
 # SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'natimmun.pythonanywhere.com']
 
