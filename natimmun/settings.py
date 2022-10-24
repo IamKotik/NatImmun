@@ -25,7 +25,7 @@ SECRET_KEY = '-e#a((o5^o5-x3_4+=kazew4maw3)pdkevm4xxg!7$ul_d3gs!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'natimmun.pythonanywhere.com']
 
 # Application definition
 
