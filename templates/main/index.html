@@ -1,12 +1,12 @@
 {% extends "base/base.html" %}
 {% load static %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
 <main role="main" class="inner cover mt-auto text-center">
     <h1 style="font-size: 40px; font-weight: bold; text-color: #00caca;">
-        <a href="#" style="color: #00caca;">
+        <a href="{% url 'calendar_list' %}" style="color: #00caca;">
             Календари профилактических
             <br>
             прививок (Приказ Министерства

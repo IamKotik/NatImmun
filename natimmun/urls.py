@@ -21,6 +21,14 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('calendar_list', views.calendar_list, name='calendar_list'),
+    path('nat_calendar', views.nat_calendar, name='nat_calendar'),
+    path('epid_calendar', views.epid_calendar, name='epid_calendar'),
+    path('ages', views.ages, name='ages'),
+    path('categories', views.categories, name='categories'),
+    path('vaccinations', views.vaccinations, name='vaccinations'),
+    path('search', views.search, name='search'),
+    path('mobile_app', views.mobile_app, name='mobile_app'),
     path('simple/', views.simple, name='simple'),
     path('map/', views.map, name='map'),
 ]

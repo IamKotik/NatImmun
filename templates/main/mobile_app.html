@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}НКиКЭП{% endblock %}
+
+{% block content %}
+<!--breadcrumbs-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" style="color: #007ffe;">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Мобильное приложение</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+<!--end breadcrumbs-->
+<a href="#" style="color: #007ffe;">Скачать</a>
+{% endblock %}
