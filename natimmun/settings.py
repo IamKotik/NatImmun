@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -19,11 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-e#a((o5^o5-x3_4+=kazew4maw3)pdkevm4xxg!7$ul_d3gs!'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'some_random_default_string')
 # SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'natimmun.pythonanywhere.com']
 
@@ -112,13 +115,26 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+# МОЙ ВАРИАНТ!
 # STATIC_ROOT = ""
 # STATIC_URL = '/staticfiles/'
 # STATICFILES_DIRS = [
 #     (os.path.join(BASE_DIR,'staticfiles'))
 # ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# МОЙ ВАРИАНТ!
+
 STATIC_URL = '/staticfiles/'
+
+STATICFILES_DIRS = [
+    BASE_DIR.join('staticfiles')
+]
+
+STATIC_ROOT = '/var/www/natimmun/staticfiles'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/staticfiles/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
