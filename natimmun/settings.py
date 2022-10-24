@@ -125,13 +125,8 @@ USE_TZ = True
 # ]
 # МОЙ ВАРИАНТ!
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/staticfiles/'
-
-STATICFILES_DIRS = [
-    BASE_DIR.join('staticfiles')
-]
-
-STATIC_ROOT = '/var/www/natimmun/staticfiles'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_URL = '/staticfiles/'
