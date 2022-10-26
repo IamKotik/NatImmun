@@ -6,3 +6,13 @@ from core.models import *
 @admin.register(Vaccinations)
 class VaccinationsAdmin(admin.ModelAdmin):
     list_display = ("code", "name")
+
+
+@admin.register(VaccinationsEpid)
+class VaccinationsEpidAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+
+
+@admin.register(VaccinationsNat)
+class VaccinationsNatAdmin(admin.ModelAdmin):
+    list_display = ("name",)
