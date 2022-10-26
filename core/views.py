@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from core.models import *
 
 
 # Create your views here.
@@ -17,7 +18,10 @@ def nat_calendar(request):
 
 
 def epid_calendar(request):
-    return render(request, "main/epid_calendar.html")
+    vaccinations_epid = VaccinationsEpid.objects.all()
+    return render(request, "main/epid_calendar.html", context={
+        'vaccinations_epid': vaccinations_epid
+    })
 
 
 def ages(request):
@@ -29,7 +33,10 @@ def categories(request):
 
 
 def vaccinations(request):
-    return render(request, "main/vaccinations.html")
+    vaccinations_nat = VaccinationsNat.objects.all()
+    return render(request, "main/vaccinations.html", context={
+        'vaccinations_nat': vaccinations_nat,
+    })
 
 
 def search(request):

@@ -18,4 +18,17 @@
     </div>
 </nav>
 <!--end breadcrumbs-->
+<main class="ms-3 my-3 me-3">
+    <div class="row">
+        {% for vaccination_epid in vaccinations_epid %}
+        <div class="col-sm-4 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ vaccination_epid.name }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
 {% endblock %}
