@@ -105,8 +105,10 @@ class VaccinatedPersonsNat(models.Model):
                                      related_name='vac_vaccintaion_two')
     vaccintaion_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                      related_name='vac_vaccintaion_three')
-    revaccintaion = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_revaccintaion')
+    revaccintaion_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
+                                     related_name='vac_revaccintaion_one')
+    revaccintaion_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
+                                     related_name='vac_revaccintaion_two')
 
     def __str__(self):
         return "{0}".format(self.age)
