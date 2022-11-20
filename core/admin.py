@@ -16,3 +16,8 @@ class VaccinationsEpidAdmin(admin.ModelAdmin):
 @admin.register(VaccinationsNat)
 class VaccinationsNatAdmin(admin.ModelAdmin):
     list_display = ("name",)
+
+
+@admin.register(VaccinatedPersonsNat)
+class VaccinatedPersonsNatAdmin(admin.ModelAdmin):
+    list_display = ("age",)
