@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.models import *
-
+from django.db.models import Q
 
 # Create your views here.
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from core.models import *
+from core.serializers import *
+
 
 def index(request):
     return render(request, "main/index.html")
@@ -45,6 +50,21 @@ def search(request):
 
 def mobile_app(request):
     return render(request, "main/mobile_app.html")
+
+
+class VaccinationsView(APIView):
+    def get(self, request):
+        vaccins = Vaccinations.objects.all()
+        serializer = VaccinationsSerializer(vaccins, many="True")
+        return Response({"vaccins": serializer.data})
+
+
+# убрать
+class VaccinationsEpidView(APIView):
+    def get(self, request):
+        vaccins_epid = VaccinationsEpid.objects.all()
+        serializer = VaccinationsEpidSerializer(vaccins_epid, many="True")
+        return Response({"vaccins_epid": serializer.data})
 
 
 def simple(request):

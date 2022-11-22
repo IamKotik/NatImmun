@@ -26,7 +26,7 @@ class Vaccinations(models.Model):
 
 
 class VaccinationsEpid(models.Model):
-    name = models.ForeignKey(Vaccinations, on_delete=models.CASCADE)
+    name = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, related_name="vaccinations_epid")
     description = models.TextField(blank=True)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class VaccinationsEpid(models.Model):
 
 
 class VaccinationsNat(models.Model):
-    name = models.ForeignKey(Vaccinations, on_delete=models.CASCADE)
+    name = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, related_name="vaccinations_nat")
     first_vac = models.TextField(blank=True)
     second_vac = models.TextField(blank=True)
     third_vac = models.TextField(blank=True)
@@ -66,49 +66,49 @@ class VaccinatedPersonsNat(models.Model):
     at_risk = models.CharField(max_length=3, choices=RISK)
     risk_description = models.TextField(blank=True)
     first_vaccin_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_first_vaccin_one')
+                                         related_name='vac_first_vaccin_one')
     first_vaccin_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_first_vaccin_two')
+                                         related_name='vac_first_vaccin_two')
     first_vaccin_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_first_vaccin_three')
+                                           related_name='vac_first_vaccin_three')
     second_vaccin_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_second_vaccin_one')
+                                          related_name='vac_second_vaccin_one')
     second_vaccin_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_second_vaccin_two')
+                                          related_name='vac_second_vaccin_two')
     second_vaccin_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_second_vaccin_three')
+                                            related_name='vac_second_vaccin_three')
     second_vaccin_four = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_second_vaccin_four')
+                                           related_name='vac_second_vaccin_four')
     third_vaccin_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_vaccin_one')
+                                         related_name='vac_third_vaccin_one')
     third_vaccin_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_vaccin_two')
+                                         related_name='vac_third_vaccin_two')
     third_vaccin_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_vaccin_three')
+                                           related_name='vac_third_vaccin_three')
     third_vaccin_four = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_vaccin_four')
+                                          related_name='vac_third_vaccin_four')
     third_vaccin_risk = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_vaccin_risk')
+                                          related_name='vac_third_vaccin_risk')
     fourth_vaccin_risk = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_fourth_vaccin_risk')
+                                           related_name='vac_fourth_vaccin_risk')
     first_revac_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_first_revac_one')
+                                        related_name='vac_first_revac_one')
     first_revac_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_first_revac_two')
+                                        related_name='vac_first_revac_two')
     second_revac = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                      related_name='vac_second_revac')
     third_revac = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_third_revac')
+                                    related_name='vac_third_revac')
     vaccintaion_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_vaccintaion_one')
+                                        related_name='vac_vaccintaion_one')
     vaccintaion_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_vaccintaion_two')
+                                        related_name='vac_vaccintaion_two')
     vaccintaion_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_vaccintaion_three')
+                                          related_name='vac_vaccintaion_three')
     revaccintaion_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_revaccintaion_one')
+                                          related_name='vac_revaccintaion_one')
     revaccintaion_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
-                                     related_name='vac_revaccintaion_two')
+                                          related_name='vac_revaccintaion_two')
 
     def __str__(self):
         return "{0}".format(self.age)
