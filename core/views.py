@@ -54,7 +54,7 @@ def mobile_app(request):
 
 def search(request):
     query = request.GET.get("q").strip()
-    vaccins = Vaccinations.objects.filter(Q(name__icontains=query[1:-1]))
+    vaccins = Vaccinations.objects.filter(Q(name__icontains=query[:-1]))
     return render(request, 'main/search.html', context={
         'vaccins': vaccins,
     })
