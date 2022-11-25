@@ -52,6 +52,14 @@ def mobile_app(request):
     return render(request, "main/mobile_app.html")
 
 
+def search(request):
+    query = request.GET.get("q").strip()
+    vaccins = Vaccinations.objects.filter(Q(name__icontains=query[:-1]))
+    return render(request, 'main/search.html', context={
+        'vaccins': vaccins,
+    })
+
+
 class VaccinationsView(APIView):
     def get(self, request):
         vaccins = Vaccinations.objects.all()

@@ -16,5 +16,17 @@
     </div>
 </nav>
 <!--end breadcrumbs-->
-Искомое слово
+
+<div class="card-columns">
+    {% for vaccin in vaccins %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ vaccin.name }}
+            </h5>
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

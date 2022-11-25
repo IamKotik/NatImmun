@@ -51,18 +51,17 @@
                     <a class="nav-link text-white" aria-current="page" href="{% url 'mobile_app' %}">Мобильное приложение</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex" action="{% url 'search' %}" method="get">
                 <div class="form-outline-light">
-                    <input type="search" id="form1" placeholder="Search" class="form-control"/>
+                    <input type="search" name="q"  id="form1" placeholder="Search" class="form-control"/>
                 </div>
                 <button
                         class="btn btn-outline-light"
-                        type="button"
+                        type="submit"
                         data-mdb-ripple-color="dark"
                 >
-                    <a href="{% url 'search' %}"><i class="fas fa-search"></i></a>
+                        <i class="fas fa-search"></i>
                 </button>
-                <!--                <a class="btn btn-primary" href="#" role="button">О картографии цвета</a>-->
             </form>
         </div>
     </div>
