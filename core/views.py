@@ -30,7 +30,10 @@ def epid_calendar(request):
 
 
 def ages(request):
-    return render(request, "main/ages.html")
+    ages = VaccinatedPersonsNat.objects.all()
+    return render(request, "main/ages.html", context={
+        'ages': ages
+    })
 
 
 def categories(request):

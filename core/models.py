@@ -101,12 +101,14 @@ class VaccinatedPersonsNat(models.Model):
                                     related_name='vac_third_revac')
     vaccintaion_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                         related_name='vac_vaccintaion_one')
+    vaccintaion_one_descript = models.TextField(blank=True)
     vaccintaion_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                         related_name='vac_vaccintaion_two')
     vaccintaion_three = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                           related_name='vac_vaccintaion_three')
     revaccintaion_one = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                           related_name='vac_revaccintaion_one')
+    revaccintaion_one_descript = models.TextField(blank=True)
     revaccintaion_two = models.ForeignKey(Vaccinations, on_delete=models.CASCADE, blank=True, null=True,
                                           related_name='vac_revaccintaion_two')
 
