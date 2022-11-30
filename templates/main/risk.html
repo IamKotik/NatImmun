@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 {% load static %}
 
-{% block title %}Возраст граждан{% endblock %}
+{% block title %}Группы риска{% endblock %}
 
 {% block content %}
 <!--breadcrumbs-->
@@ -13,157 +13,160 @@
                 <li class="breadcrumb-item"><a href="{% url 'calendar_list' %}" style="color: #007ffe;">Список
                     календарей</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'nat_calendar' %}" style="color: #007ffe;">НК</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Возраст граждан</li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="{% url 'categories' %}" style="color: #007ffe;">Категории граждан</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Группы риска</li>
             </ol>
         </nav>
     </div>
 </nav>
 <!--end breadcrumbs-->
 <main class="ms-3 my-3 me-3">
-    {% for age in ages %}
+    {% for risk in risks %}
     <div class="row">
         <div class="col-4">
             <div class="list-group list-group-light" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action px-3 border-0" id="list-home-list"
-                   data-mdb-toggle="list" href="#list-home" role="tab" aria-controls="list-home">{{ age.age }}</a>
+                   data-mdb-toggle="list" href="#list-home" role="tab" aria-controls="list-home">{{ risk.age }}</a>
             </div>
         </div>
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-home" role="tabpanel"
                      aria-labelledby="list-home-list">
-                    {% if age.age_description != "" %}
+                    {% if risk.age_description != "" %}
                     <b>Описание возрастной категории:</b>
                     <br>
-                    {{ age.age_description }}
+                    {{ risk.age_description }}
                     <br>
                     <br>
                     {% endif %}
-                    {% if age.risk_description != "" %}
+                    {% if risk.risk_description != "" %}
                     <b>Описание группы риска:</b>
                     <br>
-                    {{ age.risk_description }}
+                    {{ risk.risk_description }}
                     <br>
                     <br>
                     {% endif %}
-                    {% if age.first_vaccin_one != None %}
+                    {% if risk.first_vaccin_one != None %}
                     <b>Первая вакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.first_vaccin_one }}</li>
-                        {% if age.first_vaccin_two != None %}
-                            <li>{{ age.first_vaccin_two }}</li>
-                            {% if age.first_vaccin_three != None %}
-                                <li>{{ age.first_vaccin_three }}</li>
+                        <li>{{ risk.first_vaccin_one }}</li>
+                        {% if risk.first_vaccin_two != None %}
+                            <li>{{ risk.first_vaccin_two }}</li>
+                            {% if risk.first_vaccin_three != None %}
+                                <li>{{ risk.first_vaccin_three }}</li>
                             {% endif %}
                         {% endif %}
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.second_vaccin_one != None %}
+                    {% if risk.second_vaccin_one != None %}
                     <b>Вторая вакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.second_vaccin_one }}</li>
-                        {% if age.second_vaccin_two != None %}
-                            <li>{{ age.second_vaccin_two }}</li>
-                            {% if age.second_vaccin_three != None %}
-                                <li>{{ age.second_vaccin_three }}</li>
-                                {% if age.second_vaccin_four != None %}
-                                    <li>{{ age.second_vaccin_four }}</li>
+                        <li>{{ risk.second_vaccin_one }}</li>
+                        {% if risk.second_vaccin_two != None %}
+                            <li>{{ risk.second_vaccin_two }}</li>
+                            {% if risk.second_vaccin_three != None %}
+                                <li>{{ risk.second_vaccin_three }}</li>
+                                {% if risk.second_vaccin_four != None %}
+                                    <li>{{ risk.second_vaccin_four }}</li>
                                 {% endif %}
                             {% endif %}
                         {% endif %}
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.third_vaccin_one != None %}
+                    {% if risk.third_vaccin_one != None %}
                     <b>Третья вакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.third_vaccin_one }}</li>
-                        {% if age.third_vaccin_two != None %}
-                            <li>{{ age.third_vaccin_two }}</li>
-                            {% if age.third_vaccin_three != None %}
-                                <li>{{ age.third_vaccin_three }}</li>
-                                {% if age.third_vaccin_four != None %}
-                                    <li>{{ age.third_vaccin_four }}</li>
+                        <li>{{ risk.third_vaccin_one }}</li>
+                        {% if risk.third_vaccin_two != None %}
+                            <li>{{ risk.third_vaccin_two }}</li>
+                            {% if risk.third_vaccin_three != None %}
+                                <li>{{ risk.third_vaccin_three }}</li>
+                                {% if risk.third_vaccin_four != None %}
+                                    <li>{{ risk.third_vaccin_four }}</li>
                                 {% endif %}
                             {% endif %}
                         {% endif %}
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.third_vaccin_risk != None %}
+                    {% if risk.third_vaccin_risk != None %}
                     <b>Третья вакцинация (группы риска):</b>
                     <br>
                     <ul>
-                        <li>{{ age.third_vaccin_risk }}</li>
+                        <li>{{ risk.third_vaccin_risk }}</li>
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.fourth_vaccin_risk != None %}
+                    {% if risk.fourth_vaccin_risk != None %}
                     <b>Четвёртая вакцинация (группы риска):</b>
                     <br>
                     <ul>
-                        <li>{{ age.fourth_vaccin_risk }}</li>
+                        <li>{{ risk.fourth_vaccin_risk }}</li>
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.first_revac_one != None %}
+                    {% if risk.first_revac_one != None %}
                     <b>Первая ревакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.first_revac_one }}</li>
-                        {% if age.first_revac_two != None %}
-                            <li>{{ age.first_revac_two }}</li>
+                        <li>{{ risk.first_revac_one }}</li>
+                        {% if risk.first_revac_two != None %}
+                            <li>{{ risk.first_revac_two }}</li>
                         {% endif %}
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.second_revac != None %}
+                    {% if risk.second_revac != None %}
                     <b>Вторая ревакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.second_revac }}</li>
+                        <li>{{ risk.second_revac }}</li>
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.third_revac != None %}
+                    {% if risk.third_revac != None %}
                     <b>Третья ревакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.third_revac }}</li>
+                        <li>{{ risk.third_revac }}</li>
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.vaccintaion_one != None %}
+                    {% if risk.vaccintaion_one != None %}
                     <b>Вакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.vaccintaion_one }}</li>
-                        {% if age.vaccintaion_one_descript != "" %}
-                            <em>*{{ age.vaccintaion_one_descript }}</em>
+                        <li>{{ risk.vaccintaion_one }}</li>
+                        {% if risk.vaccintaion_one_descript != "" %}
+                            <em>*{{ risk.vaccintaion_one_descript }}</em>
                         {% endif %}
-                        {% if age.vaccintaion_two != None %}
-                            <li>{{ age.vaccintaion_two }}</li>
-                            {% if age.vaccintaion_three != None %}
-                                <li>{{ age.vaccintaion_three }}</li>
+                        {% if risk.vaccintaion_two != None %}
+                            <li>{{ risk.vaccintaion_two }}</li>
+                            {% if risk.vaccintaion_three != None %}
+                                <li>{{ risk.vaccintaion_three }}</li>
                             {% endif %}
                         {% endif %}
                     </ul>
                     <br>
                     {% endif %}
-                    {% if age.revaccintaion_one != None %}
+                    {% if risk.revaccintaion_one != None %}
                     <b>Ревакцинация:</b>
                     <br>
                     <ul>
-                        <li>{{ age.revaccintaion_one }}</li>
-                        {% if age.revaccintaion_one_descript != "" %}
-                            <em>*{{ age.revaccintaion_one_descript }}</em>
+                        <li>{{ risk.revaccintaion_one }}</li>
+                        {% if risk.revaccintaion_one_descript != "" %}
+                            <em>*{{ risk.revaccintaion_one_descript }}</em>
                         {% endif %}
-                        {% if age.revaccintaion_two != None %}
-                            <li>{{ age.revaccintaion_two }}</li>
+                        {% if risk.revaccintaion_two != None %}
+                            <li>{{ risk.revaccintaion_two }}</li>
                         {% endif %}
                     </ul>
                     <br>

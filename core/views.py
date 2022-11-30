@@ -40,6 +40,27 @@ def categories(request):
     return render(request, "main/categories.html")
 
 
+def children(request):
+    children = VaccinatedPersonsNat.objects.filter(type='KIDS')
+    return render(request, "main/children.html", context={
+        'children': children
+    })
+
+
+def adults(request):
+    adults = VaccinatedPersonsNat.objects.filter(type='ADULTS')
+    return render(request, "main/adults.html", context={
+        'adults': adults
+    })
+
+
+def risk(request):
+    risks = VaccinatedPersonsNat.objects.filter(at_risk='YES')
+    return render(request, "main/risk.html", context={
+        'risks': risks
+    })
+
+
 def vaccinations(request):
     vaccinations_nat = VaccinationsNat.objects.all()
     return render(request, "main/vaccinations.html", context={
@@ -47,8 +68,8 @@ def vaccinations(request):
     })
 
 
-def search(request):
-    return render(request, "main/search.html")
+# def search(request):
+#     return render(request, "main/search.html")
 
 
 def mobile_app(request):
