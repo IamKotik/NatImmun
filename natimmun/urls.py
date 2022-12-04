@@ -34,7 +34,5 @@ urlpatterns = [
     path('mobile_app', views.mobile_app, name='mobile_app'),
     path('simple/', views.simple, name='simple'),
     path('map/', views.map, name='map'),
-    path('api/vaccinations', views.VaccinationsView.as_view(), name="vaccinations_api"),
-    # убрать
-    path('api/vaccinations_epid', views.VaccinationsEpidView.as_view(), name="vaccinations_epid_api"),
+    path('api/vaccinations_epid', views.VaccinationsView.as_view(), name="vaccinations_api"),
 ]
