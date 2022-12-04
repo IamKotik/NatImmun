@@ -88,7 +88,7 @@ class VaccinationsView(APIView):
     def get(self, request):
         vaccins = Vaccinations.objects.all()
         serializer = VaccinationsSerializer(vaccins, many="True")
-        return Response({"vaccins": serializer.data})
+        return Response({"vaccinations": serializer.data})
 
 
 # убрать
