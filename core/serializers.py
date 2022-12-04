@@ -23,8 +23,8 @@ class VaccinatedPersonsNatSerializer(serializers.ModelSerializer):
 
 
 class VaccinationsSerializer(serializers.ModelSerializer):
-    vaccinations_epid = VaccinationsEpidSerializer(many=True, read_only=True)
-    vaccinations_nat = VaccinationsNatSerializer(many=True, read_only=True)
+    # vaccinations_epid = VaccinationsEpidSerializer(many=True, read_only=True)
+    # vaccinations_nat = VaccinationsNatSerializer(many=True, read_only=True)
     # vac_first_vaccin_one = VaccinatedPersonsNatSerializer(many=True, read_only=True)
     # vac_first_vaccin_two = VaccinatedPersonsNatSerializer(many=True, read_only=True)
     # vac_first_vaccin_three = VaccinatedPersonsNatSerializer(many=True, read_only=True)
@@ -50,7 +50,8 @@ class VaccinationsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vaccinations
-        fields = ['code', 'name', 'vaccinations_epid', 'vaccinations_nat']
+        fields = ['code', 'name']
+        # , 'vaccinations_epid', 'vaccinations_nat']
         # fields = ['code', 'name', 'vaccinations_epid', 'vaccinations_nat', 'vac_first_vaccin_one',
         #           'vac_first_vaccin_two', 'vac_first_vaccin_three', 'vac_second_vaccin_one', 'vac_second_vaccin_two',
         #           'vac_second_vaccin_three', 'vac_second_vaccin_four', 'vac_third_vaccin_one', 'vac_third_vaccin_two',
