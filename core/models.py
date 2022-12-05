@@ -12,10 +12,17 @@ TYPES = (
     ('ADULTS', 'Взрослые'),
 )
 
+VACS = (
+    ('ALL', 'Общ'),
+    ('NAT', 'Нац'),
+    ('EPID', 'Эпид'),
+)
+
 
 class Vaccinations(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=100)
+    type = models.CharField(max_length=5, choices=VACS, default='Общ')
 
     def __str__(self):
         return "{0}".format(self.name)
